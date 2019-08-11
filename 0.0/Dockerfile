@@ -14,4 +14,5 @@ RUN echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/so
     stack install idris-1.3.2
 
 ENV PATH="${HOME}/bin:${PATH}"
+ENV SHELL=/bin/bash
 ENV IDRIS_CC=clang
