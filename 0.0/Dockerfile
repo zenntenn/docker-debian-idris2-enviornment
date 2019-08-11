@@ -5,9 +5,8 @@ ADD $stack_yaml ./
 
 RUN apt-get update && apt-get install -y \
             haskell-platform \
-            clang lld-4.0 \
+            clang llvm \
             chezscheme \
-            curl wget \
             racket \
             libx11-dev uuid-dev \
             libncurses5-dev \ 
