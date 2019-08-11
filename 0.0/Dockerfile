@@ -5,6 +5,7 @@ ADD $stack_yaml ./
 
 RUN apt-get update && apt-get install -y \
             haskell-platform \
+            haskell-stack \
             clang llvm \
             chezscheme \
             racket \
