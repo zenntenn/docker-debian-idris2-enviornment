@@ -1,4 +1,4 @@
-FROM docker-idris:1.3.2
+FROM mmhelloworld/idris:1.3.2
 
 RUN apt-get update && apt-get install -y \
             clang lld-4.0 \
