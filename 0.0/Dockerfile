@@ -1,9 +1,19 @@
-FROM mmhelloworld/idris:1.3.2
+FROM debian:buster
+
+ARG stack_yaml
+ADD $stack_yaml ./
 
 RUN apt-get update && apt-get install -y \
+            haskell-platform \
             clang lld-4.0 \
             chezscheme \
             curl wget \
             racket \
             libx11-dev uuid-dev \
-            libncurses5-dev
+            libncurses5-dev \ 
+            build-essential pkg-config libffi-dev libgmp-dev && \
+    stack install idris-1.3.2
+
+ENV PATH="/bin/jdk/bin:/bin/idris-jvm/codegen/bin:${PATH}"
+
+CMD idris
