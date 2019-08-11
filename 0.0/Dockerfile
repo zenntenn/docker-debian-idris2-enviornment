@@ -14,5 +14,6 @@ RUN apt-get update && apt-get install -y \
     stack install idris-1.3.2
 
 ENV PATH="/bin/jdk/bin:/bin/idris-jvm/codegen/bin:${PATH}"
+ENV IDRIS_CC=clang
 
 CMD idris
