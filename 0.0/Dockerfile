@@ -1,20 +1,17 @@
-FROM debian:bullseye-slim
+FROM mmhelloworld/idris:1.3.2
 
-ARG stack_yaml
-ADD $stack_yaml ./
-
-RUN apt-get update && apt-get install -y \
-            haskell-platform \
-            haskell-stack \
+RUN echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/sources.list.d/backports.list \
+            apt-get update \
+            apt-get -t stretch-backports install chezscheme \
+            apt-get install -y \
             clang llvm \
-            chezscheme \
             racket \
             libx11-dev uuid-dev \
             libncurses5-dev \ 
             build-essential pkg-config libffi-dev libgmp-dev && \
     stack install idris-1.3.2
 
-ENV PATH="${HOME}/bin;/bin/jdk/bin:/bin/idris-jvm/codegen/bin:${PATH}"
+ENV PATH="${HOME}/bin:${PATH}"
 ENV IDRIS_CC=clang
 
 CMD idris
