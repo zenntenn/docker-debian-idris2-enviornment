@@ -1,6 +1,4 @@
-FROM mmhelloworld/idris:1.3.2
-
-SHELL ["/bin/bash", "-c"]
+FROM reactivefinance/idris:1.3.2
 
 RUN echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/sources.list.d/backports.list \
             apt-get update \
@@ -9,5 +7,3 @@ RUN echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/so
             
 ENV PATH="${HOME}/bin:${PATH}"
 ENV IDRIS_CC=clang
-
-CMD idris
