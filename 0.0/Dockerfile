@@ -10,6 +10,7 @@ run apt-get update && apt-get install -y \
 run wget https://github.com/cisco/ChezScheme/archive/v9.5.2.tar.gz && \
   tar xvzf v9.5.2.tar.gz && \
   cd ChezScheme-9.5.2 && \
+  ./configure --help \
   ./configure --threads --prefix=/usr/bin && \
   make -j install
 
