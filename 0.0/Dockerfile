@@ -5,8 +5,6 @@ from theodus/idris2-ci-base:latest
 ENV DEBIAN_FRONTEND=noninteractive
 RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
-env IDRIS_CC=clang
-
 WORKDIR /azp
 
 COPY ./start.sh .
