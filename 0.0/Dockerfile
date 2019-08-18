@@ -1,15 +1,8 @@
-from debian:buster
-
-run apt-get update && apt-get install -y \
-  cabal-install \
-  clang lld \
-  curl wget \
-  chicken-bin racket \
-  libx11-dev uuid-dev \
-  libncurses5-dev \
-  zlib1g-dev
-
-run cabal update && cabal install -j --with-ld=ld.lld idris-1.3.2
+FROM debian:buster 
+COPY --from=theodus/idris2-ci-base:latest /root/.cabal/bin/* /usr/bin/
+RUN apt-get update && apt-get install -y \
+  clang \
+  chicken-bin racket
 
 env IDRIS_CC=clang
-cmd idris
+cmd ["idris"]
