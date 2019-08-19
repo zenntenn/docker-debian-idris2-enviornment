@@ -1,6 +1,5 @@
 FROM debian:buster 
-COPY --from=theodus/idris2-ci-base:latest /root/.cabal/bin/* /usr/bin/
-COPY --from=theodus/idris2-ci-base:latest /root/.cabal/lib/* /usr/lib/
+COPY --from=theodus/idris2-ci-base:latest /root/.cabal/bin/* /root/.cabal/lib/* /usr/bin/
 RUN apt-get update && apt-get install -y \
   clang \
   chicken-bin racket \
