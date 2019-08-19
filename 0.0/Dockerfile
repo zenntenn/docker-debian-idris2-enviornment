@@ -7,4 +7,5 @@ RUN apt-get update && apt-get install -y \
   libtinfo5
 
 env IDRIS_CC=clang
+env PATH=$PATH:/usr/lib
 cmd ["idris"]
