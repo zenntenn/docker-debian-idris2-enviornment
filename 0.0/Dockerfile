@@ -1,10 +1,10 @@
-FROM debian:buster
-COPY --from=theodus/idris2-ci-base:latest /root/.cabal /root/
+FROM debian:Bullseye
 RUN apt-get update && apt-get install -y \
   clang \
   chicken-bin racket \
   make \
-  libtinfo5
+  haskell-stack
+RUN stack install idris --local-bin-path /usr/share/bin --resolver=lts-12
 
-env IDRIS_CC=clang
-cmd ["idris"]
+ENV PATH=$PATH:/usr/share/bin
+ENV IDRIS_CC=clang
