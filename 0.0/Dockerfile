@@ -1,4 +1,4 @@
-FROM debian:Bullseye
+FROM debian:bullseye
 RUN apt-get update && apt-get install -y \
   clang \
   chezscheme \
