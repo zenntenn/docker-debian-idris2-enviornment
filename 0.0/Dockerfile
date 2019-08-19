@@ -1,6 +1,7 @@
 FROM debian:Bullseye
 RUN apt-get update && apt-get install -y \
   clang \
+  chezscheme \
   chicken-bin racket \
   make \
   haskell-stack
