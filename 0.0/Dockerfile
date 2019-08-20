@@ -3,9 +3,9 @@ RUN apt-get update && apt-get install -y \
   netbase \
   zlib1g-dev \
   libncurses-dev \
-  haskell-stack
-RUN stack upgrade --binary-only
-RUN stack install idris-1.3.2 --local-bin-path /usr/share/bin --resolver=lts-12
+  cabal-install
+  
+RUN run cabal update && cabal install -j --with-ld=ld.lld-4.0 idris-1.3.2
 RUN apt-get install -y \
   clang \
   chezscheme \
