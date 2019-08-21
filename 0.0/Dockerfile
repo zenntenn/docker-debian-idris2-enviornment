@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
   
 RUN stack upgrade --binary-only
 
-RUN stack install idris --local-bin-path /usr/share/bin --stack-yaml stack.yaml
+RUN stack install idris --local-bin-path /usr/share/bin --stack-yaml ./stack.yaml
 
 RUN apt-get install -y \
   clang \
