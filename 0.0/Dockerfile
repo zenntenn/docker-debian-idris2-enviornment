@@ -4,9 +4,11 @@ RUN apt-get update && apt-get install -y \
   netbase \
   zlib1g-dev \
   libncurses-dev \
-  haskell-platform
+  haskell-stack
   
-RUN run cabal update && cabal install -j idris-1.3.2
+RUN stack upgrade --binary-only
+
+RUN stack install idris --local-bin-path /usr/share/bin --stack-yaml stack.yaml
 
 RUN apt-get install -y \
   clang \
